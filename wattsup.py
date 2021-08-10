@@ -102,7 +102,7 @@ class WattsUp(object):
     try:
       self.serialPort.write('#L,W,3,E,,%d;'.encode() % self.interval)
       elapsedTime = 0
-      logfile = open(logfilePrefix + '-' + self.name + '.csv', 'w')
+      logfile = open(logfilePrefix + '.csv', 'w')
       logfile.write('Meter, Time, W, V, A, WH, Cost, WH/Mo, Cost/Mo, Wmax, Vmax, Amax, Wmin, Vmin, Amin, PF, DC, PC, HZ, VA\n')
       sys.stdout.write('Meter, Time, W, V, A, WH, Cost, WH/Mo, Cost/Mo, Wmax, Vmax, Amax, Wmin, Vmin, Amin, PF, DC, PC, HZ, VA\n')
       while True:
@@ -366,7 +366,7 @@ if __name__ == '__main__':
   parser.add_argument('-p', '--ports', dest='ports', nargs='+', type=str, help='USB port(s) e.g. /dev/ttyUSB0 /dev/ttyUSB1 ..')
   parser.add_argument('-t', '--time', dest='duration', default=0.5, help='Duration of logging in minutes (default 0.5 minute)')
   parser.add_argument('-i', '--interval', dest='interval', default=1, type=int, help='Reading interval in seconds (default 1 second)')
-  parser.add_argument('-o', '--outfile-prefix', dest='prefix', default='WU-' + datetime.date.today().isoformat(), help='Prefix of output files')
+  parser.add_argument('-o', '--outfile-prefix', dest='prefix', default=time.strftime("%Y%m%d.%H%M%S",time.gmtime())+'.microfaas-log', help='Prefix of output files')
   parser.add_argument('-r', '--raw', dest='raw', action='store_true', default=False, help='Save raw data')
   parser.add_argument('-y', '--yes', dest='yes', action='store_true', default=False, help='Yes to all confirmations')
   parser.add_argument('-c', '--clear', dest='clear', action='store_true', default=False, help='Clear the internal memory')
