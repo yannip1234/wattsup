@@ -5,7 +5,7 @@
 ## Requirements
 * Watts Up? .Net or Pro meters connected using USB (<https://www.wattsupmeters.com>)
 * Linux or Mac OS X
-* Python 2.7 (Python 3 is not supported yet)
+* Python 3
 * PySerial (<http://pyserial.sourceforge.net/>)
 * FTDI drivers for Mac OS X (<http://www.ftdichip.com/Drivers/VCP.htm>)
 
@@ -16,7 +16,7 @@ __See options:__
 	$ ./wattsup.py -h
 or
 
-	$ python2.7 ./wattsup.py -h
+	$ python3 ./wattsup.py -h
 
 __Realtime external logging with the following options:__
 
